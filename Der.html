@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toddler Channel - Educational Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
+        }
+        
+        body {
+            background-color: #f0f9ff;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 40px;
+            background-image: radial-gradient(#c1e3ff 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 8px dashed #ff6b8b;
+            box-shadow: 0 4px 12px rgba(255, 107, 139, 0.2);
+        }
+        
+        h1 {
+            color: #fff;
+            font-size: 2.8rem;
+            text-shadow: 3px 3px 0 #ff6b8b;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            color: #5d2a42;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            border: 5px solid #a1d6ff;
+        }
+        
+        .intro h2 {
+            color: #ff6b8b;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .intro p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .product-card {
+            background-color: #fff;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 6px solid;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 25px 25px 15px;
+            text-align: center;
+            color: white;
+        }
+        
+        .flashcards .card-header {
+            background-color: #ff9a3c;
+            border-color: #ff9a3c;
+        }
+        
+        .videos .card-header {
+            background-color: #3d84ff;
+            border-color: #3d84ff;
+        }
+        
+        .storybooks .card-header {
+            background-color: #9d65c9;
+            border-color: #9d65c9;
+        }
+        
+        .product-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .product-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        
+        .features {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features i {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .flashcards .features i {
+            color: #ff9a3c;
+        }
+        
+        .videos .features i {
+            color: #3d84ff;
+        }
+        
+        .storybooks .features i {
+            color: #9d65c9;
+        }
+        
+        .age-range {
+            background-color: #f5f5f5;
+            padding: 12px 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .age-range i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .flashcards .buy-button {
+            background-color: #ff9a3c;
+        }
+        
+        .videos .buy-button {
+            background-color: #3d84ff;
+        }
+        
+        .storybooks .buy-button {
+            background-color: #9d65c9;
+        }
+        
+        .buy-button:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+        
+        .buy-button:active {
+            transform: scale(0.98);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .benefits {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            gap: 20px;
+        }
+        
+        .benefit-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 20px;
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 8px solid;
+        }
+        
+        .benefit-box:nth-child(1) {
+            border-top-color: #ff9a3c;
+        }
+        
+        .benefit-box:nth-child(2) {
+            border-top-color: #3d84ff;
+        }
+        
+        .benefit-box:nth-child(3) {
+            border-top-color: #9d65c9;
+        }
+        
+        .benefit-box i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .benefit-box h3 {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .product-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toddler Channel</h1>
+        <p class="subtitle">Educational Products for Curious Little Minds</p>
+    </header>
+    
+    <div class="container">
+        <div class="intro">
+            <h2>Discover Our Educational Products</h2>
+            <p>Help your toddler learn and grow with our specially designed educational products. Each product is created with love and expertise to support early childhood development.</p>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Flashcard Product -->
+            <div class="product-card flashcards">
+                <div class="card-header">
+                    <div class="product-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h2 class="product-title">Colorful Flashcards</h2>
+                    <p class="product-subtitle">Visual learning for early concepts</p>
+                </div>
+                
+                <div class="card-content">
+                    <p>Bright, durable flashcards designed to help toddlers learn letters, numbers, shapes, colors, and animals. Each card features high-contrast images perfect for developing brains.</p>
+                    
+                    <ul class="features">
+                        <li><i class="fas fa-check-circle"></i> Double-sided cards</li>
+                        <li><i class="fas fa-check-circle"></i> Rounded corners/Right-angled shaped for safety</li>
+                        <li><i class="fas fa-check-circle"></i> Water-resistant coating</li>
+                        <li><i class="fas fa-check-circle"></i> Developed with child psychologists</li>
+                        <li><i class="fas fa-check-circle"></i> Includes parent guide with activity ideas</li>
+                    </ul>
+                    
+                    <div class="age-range">
+                        <i class="fas fa-child"></i>
+                        <div>
+                            <strong>Age Range:</strong> 1-10 years
+                        </div>
+                    </div>
+                    
+                    <button class="buy-button">Buy Now </button>
+                </div>
+            </div>
+            
+            <!-- Learning Videos Product -->
+            <div class="product-card videos">
+                <div class="card-header">
+                    <div class="product-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h2 class="product-title">Learning Videos</h2>
+                    <p class="product-subtitle">Engaging educational content</p>
+                </div>
+                
+                <div class="card-content">
+                    <p>Interactive video series that teaches basic concepts through songs, animations, and real-world examples. Screen time that's actually educational!</p>
+                    
+                    <ul class="features">
+                        <li><i class="fas fa-check-circle"></i> 50+ video episodes (10 + mins each)</li>
+                        <li><i class="fas fa-check-circle"></i> Ad-free and safe content</li>
+                        <li><i class="fas fa-check-circle"></i> Teaches ABCs, counting, and social skills</li>
+                        <li><i class="fas fa-check-circle"></i> Available on our website</li>
+                        <li><i class="fas fa-check-circle"></i> Closed captions for early reading</li>
+                    </ul>
+                    
+                    <div class="age-range">
+                        <i class="fas fa-child"></i>
+                        <div>
+                            <strong>Age Range:</strong> 1-10 years
+                        </div>
+                    </div>
+                    
+                    <button class="buy-button">Buy Now </button>
+                </div>
+            </div>
+            
+            <!-- Storybooks Product -->
+            <div class="product-card storybooks">
+                <div class="card-header">
+                    <div class="product-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h2 class="product-title">Interactive Storybooks</h2>
+                    <p class="product-subtitle">Stories that come to life</p>
+                </div>
+                
+                <div class="card-content">
+                    <p>Beautifully illustrated storybooks with tactile elements, and interactive features that make reading time an immersive experience.</p>
+                    
+                    <ul class="features">
+                        <li><i class="fas fa-check-circle"></i> Available on our website</li>
+                        <li><i class="fas fa-check-circle"></i> Uses user friendly language</li>
+                    
+                        <li><i class="fas fa-check-circle"></i> Teaches morals and emotional intelligence</li>
+                        <li><i class="fas fa-check-circle"></i> Uses colorful and appealing characters</li>
+                    </ul>
+                    
+                    <div class="age-range">
+                        <i class="fas fa-child"></i>
+                        <div>
+                            <strong>Age Range:</strong> 1-10 years
+                        </div>
+                    </div>
+                    
+                    <button class="buy-button" >Buy Now </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="benefits">
+            <div class="benefit-box">
+                <i class="fas fa-brain" style="color: #ff9a3c;"></i>
+                <h3>Develops Cognitive Skills</h3>
+                <p>Our products are designed by early education experts to promote memory, problem-solving, and language development.</p>
+            </div>
+            
+            <div class="benefit-box">
+                <i class="fas fa-heart" style="color: #3d84ff;"></i>
+                <h3>Safe & Child-Friendly</h3>
+                <p>All materials are non-toxic, BPA-free, and designed with rounded edges for complete safety during playtime.</p>
+            </div>
+            
+            <div class="benefit-box">
+                <i class="fas fa-smile-beam" style="color: #9d65c9;"></i>
+                <h3>Makes Learning Fun</h3>
+                <p>Through engaging designs and interactive elements, we help create positive associations with learning from an early age.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Toddler channel
+        | Designed for curious minds ages 1-10</p>
+        <p>Email:admin@toddlerchannel.com</p>
+    </footer>
+
+    <script>
+        // Add interactive functionality to the buy buttons
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.closest('.product-card').querySelector('.product-title').textContent;
+                const price = this.textContent.match(/\$\d+\.\d+/)[0];
+                
+                // Create a cute notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background-color: #ff9a3c;
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 15px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    z-index: 1000;
+                    font-weight: bold;
+                    animation: slideIn 0.5s ease;
+                `;
+                
+                notification.innerHTML = `
+                    <i class="fas fa-cart-plus"></i> 
+                    Added ${product} (${price}) to cart!
+                    <br><small style="font-size:0.8rem;">(This is a demo - no actual purchase)</small>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Remove notification after 3 seconds
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.5s ease';
+                    setTimeout(() => notification.remove(), 500);
+                }, 3000);
+            });
+        });
+        
+        // Add CSS for the notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
